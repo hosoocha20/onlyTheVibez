@@ -4,8 +4,11 @@ import cors from "cors"
 
 import eatsRoutes from "./routes/eats.js";
 import todosRoutes from "./routes/todos.js";
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express()
+
 
 //middlewares
 app.use(express.json())
@@ -30,7 +33,6 @@ app.use("/api/todos", todosRoutes)
 //     })
 // })
 
-
-app.listen(8800, ()=>{
+app.listen(process.env.PORT, ()=>{
     console.log("Listening to Port 8800")
 })
