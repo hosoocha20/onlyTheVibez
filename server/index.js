@@ -32,7 +32,7 @@ app.use("/api/todos", todosRoutes)
 //         return res.json(data)
 //     })
 // })
-
-app.listen(process.env.PORT, ()=>{
+const port = process.env.PORT || 8800
+app.listen(port, ()=>{
     console.log("Listening to Port 8800")
 })
