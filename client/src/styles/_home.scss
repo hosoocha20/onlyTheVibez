@@ -1,0 +1,244 @@
+@import "./variables";
+
+@mixin scrim($direction: to top, $color: #000, $alpha-from: 0.95, $alpha-to: 0) {
+	$diff: $alpha-from - $alpha-to;
+	background: linear-gradient(
+		$direction,
+		rgba($color, $alpha-from) 10%,
+        rgba($color, $alpha-from - $diff*0.4) 40%,
+		rgba($color, $alpha-from - $diff*0.7) 53%,
+		rgba($color, $alpha-from - $diff*0.85) 65%,
+		rgba($color, $alpha-from - $diff*0.925) 75.5%,
+		rgba($color, $alpha-from - $diff*0.963) 82.85%,
+		rgba($color, $alpha-from - $diff*0.981) 88%,
+		rgba($color, $alpha-to) 100%
+	);
+}
+
+.home-container{
+    width: 100%;
+    // height: calc(100vh - $navbar-height - 3rem);
+    height: 100%;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+
+}
+.home-title{
+    width: 100%;
+    padding: 1rem 1rem;
+    
+    h1{
+        font-size: clamp(2rem,5vw,4rem);
+        text-align: center;
+
+        span{
+            color: $pink-5;
+        }
+        
+    }
+    h3{
+        font-size: clamp(1rem,2vw,1.2rem);
+        font-family: 'Lora', serif;
+        font-weight:600;
+        text-align: center;
+
+        span{
+            font-family: 'Lora', serif;
+            font-style: italic;
+            font-weight: 600;
+        }
+        span:not(:first-child){
+            color: $pink-4;
+        }
+    }
+}
+
+.home-text2{
+    margin-left: 30%;
+}
+
+
+
+
+.grid-wrapper{
+    padding: 2rem 2%;
+}
+
+.grid-item{
+    cursor: pointer;
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    &:hover{
+        #grid-img, #do-grid-img{
+            transform: scale(1.2);
+        }
+
+
+    }
+}
+.grid-item-thumbnail{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    padding: 0 8% 1.1rem 8%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: flex-end;
+    color: #FFFFFF;
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    @include scrim();
+
+    h4{
+        font-size: 13px;
+        font-weight: 400;
+        
+    }
+}
+#grid-img{
+    border-radius: 1rem;
+    vertical-align: middle;
+    transition: all .6s ease;
+}
+
+.eat-tag-container{
+    position: sticky;
+    top: $navbar-height;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem;
+    justify-content: center;
+    padding: 0 1rem 1rem 1rem;
+    background-color: #FFFFFF;
+    z-index: 1;
+
+    button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem;
+        cursor: pointer;
+        font-weight: 500;
+        border-radius: 1rem;
+        border: 1px solid $pink-1;
+        padding: 0.3rem 0.6rem;
+        background-color: $pink-1;
+        font-size: 12px;
+
+        p{
+            color: #4e031b;
+        }
+
+    }
+    .activeEatTag{
+        background-color: $pink-4;
+        border: 1px solid $pink-4;
+
+        p{
+            color: #FFFFFF;
+        }
+    }
+    .hideTagMenu{
+        display: none;
+    }
+    .showHeartIcon{
+        transform: scale(1);
+        transition: transform 300ms ease-out;
+        
+    }
+    .hideHeartIcon{
+        position: absolute;
+        left: 0.6rem;
+        transform: scale(0);
+        
+    }
+}
+
+
+@media (min-width: $media-phone){
+
+
+}
+@media (min-width: $media-sm) {
+    .grid-wrapper{
+        padding: 1rem 6%;
+    }
+    .openItem-container{
+        margin: 1rem 6%;
+    }
+    .eat-tag-container{
+        padding: 1rem 18% 1rem 18%;
+    }
+    .home-title{
+        padding: 1rem 2rem;
+    }
+
+}
+@media (min-width: $media-md) {
+    .grid-wrapper{
+        padding: 1rem 10%;
+
+    }
+    .openItem-container{
+        max-height: 60vh;
+        flex-wrap: nowrap;
+        margin: 1rem 10%;
+        gap: 3rem;
+    }
+    .back-wrapper{
+        font-size: 15px;
+    }
+    .openItem-img-container{
+        width: 40%;
+    }
+    .item-content-wrapper{
+        width: 60%;
+        gap: 1rem;
+    }
+
+    .item-icons{
+        a, p{
+            font-size: 14px;
+        }
+    }
+    .eat-tag-container{
+        button{
+            font-size: 13px;
+            padding: 0.3rem 1rem;
+
+        }
+    }
+    .grid-item-thumbnail{
+        h4{
+            font-size: 14px;
+        }
+    }
+
+}
+@media (min-width: 1300px) {
+    .grid-wrapper{
+        padding: 1rem 15%;
+    }
+    .openItem-container{
+        margin: 1rem 15%;
+    }
+    .home-container{
+        padding: 0 1rem;
+    }
+    .eat-tag-container{
+        gap: 0.5rem;
+
+        button{
+            font-size: 14px;
+            padding: 0.3rem 1rem;
+            border-radius: 1.8rem;
+
+        }
+    }
+}

@@ -1,0 +1,26 @@
+@import "./variables";
+@import "./navbar";
+@import "./home";
+@import "./do";
+@import "./about";
+@import "./openItem";
+@import "./animatedOpener";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .App{
+    width: 100vw;
+    height: 100%;
+    min-height: 100%;
+    background-color: #FFFFFF;
+    position: relative;
+    
+  }
+
+
+  

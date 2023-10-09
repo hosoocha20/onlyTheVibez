@@ -1,0 +1,167 @@
+@import "./variables";
+
+@mixin opening-header-ani($fontsize){
+    @keyframes opening-text-animation{
+        0%{
+            top: 0;
+            left: 50%;
+            opacity: 1;
+        }
+        20%{
+            top: -($fontsize);
+            left: 50%;
+            opacity: 1;
+    
+        }
+        40%,50%{
+            top: -($fontsize*2);
+            left: 50%;
+            opacity: 1;
+        }
+        58%{
+            opacity: 0; 
+        }
+        100%{
+            top: -($fontsize*2);
+            left: -100%;
+            opacity: 0;
+            
+        }
+    } 
+}
+
+@mixin opening-auckland-ani($fontsize){
+    @keyframes auckland-animation{
+        0%{
+            right: 50%;
+            bottom: -($fontsize);
+        }
+        20%, 40%{
+            right: 50%;
+            bottom: 0;
+            opacity: 1;
+        }
+        53%{
+            opacity: 0; 
+        }
+        100%{
+            right: -100%;
+            bottom: 0;
+            opacity: 0;
+    
+        }
+    }
+}
+.opener-container{
+    position:fixed;
+    top: 0;
+    left: 0;
+    background: white;
+    height: 100vh;
+    width: 100vw;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    opacity: 1;
+    animation: fade-opener 1.8s 5.4s forwards;
+
+}
+
+.opening-heading-wrapper{
+    width: 100%;
+    overflow: hidden;
+    height: 50px;
+    line-height: 1;
+    position: relative;
+}
+.opening-heading-text{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    animation: opening-text-animation 7.8s 1s forwards;
+    
+    h1{
+        font-size: 50px;
+        text-align: center;
+    }
+    h1:nth-child(1){
+        color: $pink-4;
+    }
+    h1:nth-child(2){
+        color: $blue-4;
+    }
+}
+
+.auckland-heading-wrapper{
+    width: 100%;
+    overflow: hidden;
+    height: 50px;
+    position: relative;
+
+    h1{
+        font-size: 50px;
+        line-height: 1;
+        position: absolute;
+        bottom: -50px;
+        right: 50%;
+        transform: translate(50%, 0);
+        animation: auckland-animation 5s 2.9s ease forwards;
+    }
+}
+
+ 
+
+@keyframes fade-opener{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        z-index: -1;
+    }
+}
+
+
+@include opening-header-ani(50px);
+@include opening-auckland-ani(50px);
+
+@media (min-width: $media-phone) {
+    .opening-heading-wrapper, .auckland-heading-wrapper{
+        height: 70px;
+    }
+    .opening-heading-text, .auckland-heading-wrapper{
+        h1{
+            font-size: 70px;
+        }
+    }
+    .auckland-heading-wrapper{
+        h1{
+            bottom: -70px;
+        }
+    }
+
+    @include opening-header-ani(70px); 
+    @include opening-auckland-ani(70px);
+}
+@media (min-width: 1300px){
+    .opening-heading-wrapper, .auckland-heading-wrapper{
+        height: 100px;
+    }
+    .opening-heading-text, .auckland-heading-wrapper{
+        h1{
+            font-size: 100px;
+        }
+    }
+    .auckland-heading-wrapper{
+        h1{
+            bottom: -100px;
+        }
+    }
+
+    @include opening-header-ani(100px); 
+    @include opening-auckland-ani(100px);   
+}

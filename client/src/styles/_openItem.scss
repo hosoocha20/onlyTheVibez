@@ -1,0 +1,142 @@
+@import "./variables";
+
+.openItem-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0 2%;
+    
+    border: 2px solid #e9e9e9;
+    background-color: #fbfbfb;
+    border-radius: 0.6rem;
+    position: relative;
+}
+
+.item-content-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 2rem 3rem 2rem;
+}
+.item-title-wrapper{
+    h3{
+        font-size: clamp(20px,3vw ,35px);
+        font-weight: 600;
+        color: #1f2937;
+    }
+}
+.back-wrapper{
+    font-size: 12px;
+    cursor: pointer;
+    border: none;
+    border-radius: 1rem;
+    padding: 0.25rem 0.5rem;
+    background: #fbfbfb;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+}
+.item-icons{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, max-content));
+    align-items: center;
+    column-gap: 0.9rem;
+    row-gap: 0.5rem;
+
+    a, p{
+        font-size: 12px;
+    }
+    a{
+        width: fit-content;
+        color: #14a6c6;
+    }
+}
+.openItem-img-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-height: 500px;
+}
+#openItem-img{
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    object-fit: cover;
+    border-top-right-radius: 0.6rem;
+    border-top-left-radius: 0.6rem;
+    border: 1px solid #f2f2f2;
+}
+.openItem-description{
+    padding-top: 0.5rem;
+    font-size: 13px;
+}
+
+.openItem-imgCredit{
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 10px;
+    font-style: italic;
+    color: #aaaaaa;
+    text-align: right;
+}
+
+
+@media (min-width: $media-sm) {
+
+    .openItem-container{
+        margin: 1rem 6%;
+        
+    }
+
+
+}
+@media (min-width: $media-md) {
+    .openItem-container{
+        max-height: 60vh;
+        flex-wrap: nowrap;
+        margin: 1rem 10%;
+        padding: 2rem 2rem;
+        gap: 3rem;
+    }
+    .back-wrapper{
+        font-size: 15px;
+    }
+    .openItem-img-container{
+        width: 40%;
+    }
+    #openItem-img{
+        border-radius: 0.6rem;
+    }
+    .item-content-wrapper{
+        width: 60%;
+        gap: 1rem;
+    }
+
+    .item-icons{
+        a, p{
+            font-size: 14px;
+        }
+    }
+    .openItem-description{
+        font-size: 14px;
+    }
+
+
+}
+@media (min-width: 1300px) {
+    .openItem-container{
+        margin: 1rem 15%;
+    }
+    .openItem-description{
+        padding-right: 25%;
+        font-size: 15px;
+    }
+
+}
