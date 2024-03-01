@@ -10,6 +10,7 @@ https://github.com/hosoocha20/onlyTheVibez/assets/135686209/f56f07fe-11b0-4948-a
 
 A responsive masonry image gallery of eateries and activities.
 - Click on image item to view details
+- Automatic scoll to position on image click and exit
 - Tag catergories for filtering results
 
 ### About Page
